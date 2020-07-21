@@ -17,9 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    snake.cpp
 
 HEADERS += \
+    Snake.h \
     mainwindow.h
 
 FORMS += \
