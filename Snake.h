@@ -38,4 +38,7 @@ private:
     bool downDirection;
     bool inGame;
 
+    loadImages();
+    initGame();
+
 };
