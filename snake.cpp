@@ -4,7 +4,7 @@
 
 Snake::Snake(QWidget *parent) : QWidget(parent) {
 
-    setStyleSheet("background-color:silver;");
+    setStyleSheet("background-color:black;");
     leftDirection = false;
     rightDirection = true;
     upDirection = false;

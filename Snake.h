@@ -6,9 +6,6 @@ class Snake : public QWidget{
 public:
     Snake(QWidget *parent = 0);
 
-
-protected:
-
 private:
     void paintEvent   (QPaintEvent *);
     void timerEvent   (QTimerEvent *);
