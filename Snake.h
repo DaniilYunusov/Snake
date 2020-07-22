@@ -8,11 +8,13 @@ public:
 
 
 protected:
+
+private:
     void paintEvent   (QPaintEvent *);
     void timerEvent   (QTimerEvent *);
     void keyPressEvent(QKeyEvent   *);
 
-private:
+
     QImage dot;
     QImage head;
     QImage apple;
@@ -38,7 +40,12 @@ private:
     bool downDirection;
     bool inGame;
 
-    loadImages();
-    initGame();
-
+    void loadImages();
+    void initGame();
+    void locateApple();
+    void checkApple();
+    void checkCollision();
+    void move();
+    void doDrawing();
+    void gameOver(QPainter &);
 };
