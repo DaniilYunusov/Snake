@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QTime>
 #include "Snake.h"
+#include <QProcess>
 
 Snake::Snake(QWidget *parent) : QWidget(parent) {
 
@@ -80,8 +81,36 @@ void Snake::gameOver(QPainter &qp) {
     int h = height();
     int w = width();
 
-    qp.translate(QPoint(w/2, h/2));
+    qp.translate(QPoint(w/2, h/3));
     qp.drawText(-textWidth/2, 0, message);
+
+
+    QString message2 = "To play again click 'r'";
+    QFont font2("Courier", 10, QFont::DemiBold);
+    QFontMetrics fm2(font2);
+    int textWidth2 = fm.width(message2);
+
+    qp.setPen(QColor(Qt::white));
+    qp.setFont(font2);
+    int h2 = height();
+    int w2 = width();
+
+    qp.translate(QPoint(w2/1.25, h2/3));
+    qp.drawText(-textWidth2, 0, message2);
+
+
+    QString message3 = "Press 'ESC' to exit";
+    QFont font3("Courier", 10, QFont::DemiBold);
+    QFontMetrics fm3(font3);
+    int textWidth3 = fm.width(message3);
+
+    qp.setPen(QColor(Qt::white));
+    qp.setFont(font3);
+    int h3 = height();
+    int w3 = width();
+
+    qp.translate(QPoint(w3/4, h3/5));
+    qp.drawText(-textWidth3*1.4, 0, message3);
 }
 
 
@@ -207,6 +236,14 @@ void Snake::keyPressEvent(QKeyEvent *e) {
     if ((key == Qt::Key_Escape) && (inGame == false)){
         QWidget::close();
     }
+
+    if ((key == Qt::Key_R) && (inGame == false)){
+        QProcess process;
+        process.startDetached("Snake",QStringList());
+
+        qApp->quit();
+    }
+
 
     QWidget::keyPressEvent(e);
 }
