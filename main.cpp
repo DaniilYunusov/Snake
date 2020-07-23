@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QIcon>
+
 #include "Snake.h"
 
 int main(int argc, char *argv[]) {
@@ -14,3 +15,4 @@ int main(int argc, char *argv[]) {
 
   return app.exec();
 }
+

@@ -3,8 +3,10 @@
 
 class Snake : public QWidget{
 
+
 public:
     Snake(QWidget *parent = 0);
+
 
 private:
     void paintEvent   (QPaintEvent *);
@@ -21,7 +23,7 @@ private:
     static const int DOT_SIZE = 10;
     static const int ALL_DOTS = 900;
     static const int RAND_POS = 29;
-    static const int DELAY = 90;
+    static const int DELAY = 50;
 
     int timerId;
     int dots;
@@ -36,6 +38,8 @@ private:
     bool upDirection;
     bool downDirection;
     bool inGame;
+
+
 
     void loadImages();
     void initGame();

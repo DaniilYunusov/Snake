@@ -1,4 +1,5 @@
 #include <QPainter>
+#include <QApplication>
 #include <QTime>
 #include "Snake.h"
 
@@ -82,6 +83,9 @@ void Snake::gameOver(QPainter &qp) {
     qp.translate(QPoint(w/2, h/2));
     qp.drawText(-textWidth/2, 0, message);
 }
+
+
+
 
 void Snake::checkApple() {
 
@@ -176,54 +180,32 @@ void Snake::keyPressEvent(QKeyEvent *e) {
 
     int key = e->key();
 
-    if ((key == Qt::Key_Left) && (!rightDirection)) {
+    if (((key == Qt::Key_Left) || (key == Qt::Key_A)) && (!rightDirection)) {
         leftDirection = true;
         upDirection = false;
         downDirection = false;
     }
 
-    if ((key == Qt::Key_Right) && (!leftDirection)) {
+    if (((key == Qt::Key_Right) || (key == Qt::Key_D)) && (!leftDirection)) {
         rightDirection = true;
         upDirection = false;
         downDirection = false;
     }
 
-    if ((key == Qt::Key_Up) && (!downDirection)) {
+    if (((key == Qt::Key_Up) || (key == Qt::Key_W)) && (!downDirection)) {
         upDirection = true;
         rightDirection = false;
         leftDirection = false;
     }
 
-    if ((key == Qt::Key_Down) && (!upDirection)) {
+    if (((key == Qt::Key_Down) || (key == Qt::Key_S))&& (!upDirection)) {
         downDirection = true;
         rightDirection = false;
         leftDirection = false;
     }
 
-
-
-    if ((key == Qt::Key_A) && (!rightDirection)) {
-        leftDirection = true;
-        upDirection = false;
-        downDirection = false;
-    }
-
-    if ((key == Qt::Key_D) && (!leftDirection)) {
-        rightDirection = true;
-        upDirection = false;
-        downDirection = false;
-    }
-
-    if ((key == Qt::Key_W) && (!downDirection)) {
-        upDirection = true;
-        rightDirection = false;
-        leftDirection = false;
-    }
-
-    if ((key == Qt::Key_S) && (!upDirection)) {
-        downDirection = true;
-        rightDirection = false;
-        leftDirection = false;
+    if ((key == Qt::Key_Escape) && (inGame == false)){
+        QWidget::close();
     }
 
     QWidget::keyPressEvent(e);
